@@ -1,0 +1,45 @@
+<section>
+    <aside class="filters">
+        <h3>Filter</h3>
+        <input id="search-bar" class="search-bar" type="text" placeholder="Search by EXACT name" />
+        <label>Price:</label>
+        <input id="min-price" class="input-num" type="number" value="0" min="0" />
+        <span>-</span>
+        <input id="max-price" class="input-num" type="number" value="100000000" />
+        <label>Category:</label>
+        <select id="category" class="category">
+            <option value="Any">All</option>
+            <option value="P6mkddtOWI">Condo</option>
+            <option value="vSVPCgxd0Z">Penthouse</option>
+            <option value="IMoWT4lWrb">Apartment</option>
+            <option value="g3vDlnWoMj">Studio</option>
+        </select>
+        <button id="filter" class="filter-button">Filter</button>
+        <p class="clear-filters" id="clear-filters">Clear filters</p>
+    </aside>
+    <div class="estates">
+        <ul>
+            {{#results}}
+            <li class="estate" data-id="{{objectId}}">
+                <div class="estate-info">
+                    <p class="item-name">{{name}}</p>
+                    <p class="category"><span class="pre">Category:</span><span class="categoryType">{{category.name}}</span>
+                    </p>
+                    <p class="price"><span class="pre">Price:</span> $<span class="priceNumber">{{price}}</span>
+                    </p>
+                </div>
+                {{#isEditable}}
+                <footer class="estate-footer">
+                    <a>
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a>
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </footer>
+                {{/isEditable}}
+            </li>
+            {{/results}}
+        </ul>
+    </div>
+</section>
