@@ -1,15 +1,16 @@
+/* global Q */
+
 var app = app || {};
 
-app.requester = (function() {
-    function Requester() {
-    }
+app.requester = (function () {
+    function Requester() {}
 
     Requester.prototype.get = function (headers, url) {
         return makeRequest('GET', headers, url);
     };
 
     Requester.prototype.post = function (headers, url, data) {
-        return makeRequest('POST', headers, url, data)
+        return makeRequest('POST', headers, url, data);
     };
 
     Requester.prototype.put = function (headers, url, data) {
@@ -43,5 +44,5 @@ app.requester = (function() {
         load: function (baseUrl) {
             return new Requester(baseUrl);
         }
-    }
+    };
 }());
